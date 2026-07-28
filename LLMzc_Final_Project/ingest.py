@@ -1,30 +1,31 @@
 import requests
 from minsearch import Index
 
-
-def load_faq_data():
-    docs_url = 'https://datatalks.club/faq/json/courses.json'
-    response = requests.get(docs_url)
-    courses_raw = response.json()
-
-    documents = []
-    url_prefix = 'https://datatalks.club/faq'
-
-    for course in courses_raw:
-        course_url = f'{url_prefix}{course["path"]}'
-        course_response = requests.get(course_url)
-        course_response.raise_for_status()
-        course_data = course_response.json()
-
-        documents.extend(course_data)
-
-    return documents
+def load_ground_truth():
+    # Load your CSV
+    df = pd.read_csv("ground_truth.csv")
+    
+    ground_truth_list = []
+    
+    for qa_id, data in ground_truth.items():
+        doc_id = data["doc_id"]
+        chunk_text = chunks[doc_id]
+        
+        record = {
+            "qa_id": qa_id,
+            "doc_id": doc_id,
+            "chunk": chunk_text,
+            "question": data["question"],
+            "answer": data["answer"]
+        }
+        ground_truth_list.append(record)
+    
+    return ground_truth_list
 
 
 def build_index(documents):
     index = Index(
-        text_fields=['question', 'section', 'answer'],
-        keyword_fields=['course']
+        text_fields=["chunk", "question", "answer"]
     )
     index.fit(documents)
     return index
