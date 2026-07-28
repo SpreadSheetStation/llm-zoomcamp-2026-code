@@ -11,7 +11,9 @@ This resulted in 5 chunks since this was a relatively short article. Each of the
     doc_003
     doc_004
     doc_005
+The doc_id is just for future/potential reference to get back to the source data on which the questions are based on.
 
+== The QA Knowledge Base "the FAQ" ==
 For each chunk/doc_id I thought up 2 questions manually via Google Sheets and downloaded this as a .csv file (which you can find in the DataSource folder):
 qa_knowledge_base.csv
 Each Q&A therefore has a unique qa_id:
@@ -25,8 +27,7 @@ Each Q&A therefore has a unique qa_id:
     qa_008
     qa_009
     qa_010
-
-This can help us with easy identification (and this will come in handy later, for evaluation with ground truth). The doc_id is just for future/potential reference to get back to the source data on which the questions are based on.
+This can help us with easy identification (and this will come in handy later, for evaluation with ground truth).
 
 
 
