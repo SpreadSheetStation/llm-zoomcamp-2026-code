@@ -125,7 +125,10 @@ if __name__ == "__main__":
 
     # Save to CSV
     df_ground_truth = pd.DataFrame(ground_truth)
-    df_ground_truth.to_csv("my_ground_truth.csv", index=False)
+    # Get the path to the folder where this script is located
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    output_path = os.path.join(script_dir, "my_ground_truth.csv")
+    df_ground_truth.to_csv(output_path, index=False)
     print(f"Saved {len(ground_truth)} questions to my_ground_truth.csv")
 
     # Print cost
