@@ -4,7 +4,7 @@ import pandas as pd
 
 def load_qa_kb():
     # Load your CSV
-    df = pd.read_csv("qa_knowledge_base.csv")
+    df = pd.read_csv("DataSource/qa_knowledge_base.csv")
     
     qa_list = []
     

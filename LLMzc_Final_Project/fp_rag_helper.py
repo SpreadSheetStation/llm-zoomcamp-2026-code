@@ -33,7 +33,7 @@ class RAGBase:
         self.model = model
 
     def search(self, query, num_results=5):
-        boost_dict = {'question': 3.0, 'answer': 0.5}
+        boost_dict = {'question': 2.0, 'answer': 0.5}
 
         return self.index.search(
             query,
