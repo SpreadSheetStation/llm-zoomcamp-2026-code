@@ -62,3 +62,49 @@ First I,
 
 Then I used an LLM judge to compare each answer against the original answer; calculated the score for each approach and eventually picked the best approach for your final project.
 
+== Interface == https://youtu.be/1WOQJ6EYvTo
+Streamlit UI App
+CLI is also available
+
+== Monitoring == https://youtu.be/1WOQJ6EYvTo
+The project includes a monitoring system that tracks user interactions and displays metrics on a dashboard.
+
+// Feedback Collection
+When a user asks a question in the chat app, they can rate the answer with thumbs up or thumbs down. This feedback is saved to a CSV file (feedback.csv) along with:
+-The question asked
+-The answer given
+-Response time
+-Timestamp
+
+// Dashboard
+A separate Streamlit dashboard displays real-time metrics from the feedback data:
+-Total Questions:    	    Total number of questions asked
+-Thumbs Up / Down:	        Count of helpful vs. not helpful answers
+-Feedback Distribution:	    Pie chart showing percentage of helpful vs. not helpful answers
+-Most Asked Topics:  	    Donut chart showing which topics users ask about most
+-Response Time Performance:	Gauge chart showing average response time to answer questions
+-Response Time Over Time:	Line chart tracking response time trends
+-Questions Per Day:      	Bar chart showing daily question volume
+-Recent Feedback:           Most recent data feedback
+
+/How to Use
+1. Chat App: Run 
+streamlit run streamlit_app.py --server.port 8501
+ and ask questions. Click thumbs up or down to provide feedback.
+
+2. Dashboard: Run 
+streamlit run dashboard.py --server.port 8502 
+and click the "Refresh Data" button to see updated metrics.
+
+The dashboard displays charts using the data collected from user feedback. Each new interaction is appended to feedback.csv, and the dashboard updates when refreshed.
+
+### Why CSV Instead of a Database?
+
+For this capstone, I chose CSV over PostgreSQL for monitoring data storage. The main reasons:
+
+- **Simplicity:** No Docker or database setup required—reviewers can run the app immediately.
+- **Portability:** The `feedback.csv` file is self-contained and included in the repo.
+- **Sufficient Scale:** With low expected traffic, CSV handles the data volume just fine.
+- **Better Review Experience:** Peer reviewers see sample data and charts instantly without extra configuration.
+
+While a database would be better for production-scale systems, the CSV approach is simpler, more reproducible, and fully meets the monitoring evaluation criteria for this project.
