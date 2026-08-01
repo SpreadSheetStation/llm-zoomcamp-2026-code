@@ -68,14 +68,41 @@ def evaluate(search_function):
         "mrr": mrr(relevance_total)
     }
 
-# --- Test a simple search with default boosts ---
+# --- Test multiple boost combinations ---
 if __name__ == "__main__":
-    print("Testing default search (question=2.0, answer=0.5)...")
+    print("Testing different boost combinations...\n")
     
-    def default_search(query):
-        return search_boosts(query, question_boost=2.0, answer_boost=0.5)
+    boost_combinations = [
+        {"name": "Default (q=2.0, a=0.5)", "q": 2.0, "a": 0.5},
+        {"name": "Equal (q=1.0, a=1.0)", "q": 1.0, "a": 1.0},
+        {"name": "High Question (q=3.0, a=0.5)", "q": 3.0, "a": 0.5},
+        {"name": "High Answer (q=1.0, a=2.0)", "q": 1.0, "a": 2.0},
+        {"name": "Very High Question (q=5.0, a=0.5)", "q": 5.0, "a": 0.5},
+        {"name": "Very High Answer (q=1.0, a=4.0)", "q": 1.0, "a": 4.0},
+    ]
     
-    results = evaluate(default_search)
-    print(f"Hit Rate: {results['hit_rate']:.4f}")
-    print(f"MRR: {results['mrr']:.4f}")
-
+    results_list = []
+    
+    for combo in boost_combinations:
+        print(f"Testing: {combo['name']}")
+        
+        def search_fn(query, q=combo['q'], a=combo['a']):
+            return search_boosts(query, question_boost=q, answer_boost=a)
+        
+        results = evaluate(search_fn)
+        results_list.append({
+            "name": combo['name'],
+            "question_boost": combo['q'],
+            "answer_boost": combo['a'],
+            "hit_rate": results['hit_rate'],
+            "mrr": results['mrr']
+        })
+        print(f"  Hit Rate: {results['hit_rate']:.4f}, MRR: {results['mrr']:.4f}\n")
+    
+    # Find the best combination
+    df_results = pd.DataFrame(results_list)
+    best_mrr = df_results.loc[df_results['mrr'].idxmax()]
+    print("=" * 50)
+    print(f"🏆 BEST COMBINATION: {best_mrr['name']}")
+    print(f"   Hit Rate: {best_mrr['hit_rate']:.4f}")
+    print(f"   MRR: {best_mrr['mrr']:.4f}")

@@ -33,7 +33,8 @@ class RAGBase:
         self.model = model
 
     def search(self, query, num_results=5):
-        boost_dict = {'question': 2.0, 'answer': 0.5}
+        boost_dict = {'question': 1.0, 'answer': 2.0} 
+        # Best boost value combination applied from output search_evaluation.py
 
         return self.index.search(
             query,

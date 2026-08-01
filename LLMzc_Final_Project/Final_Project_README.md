@@ -42,3 +42,23 @@ For a future expansion to this project, I might add an extra search tool, a "sec
 Data provided for this KB will look like this:
 3 columns:
 doc_id | section | chunk
+
+// GroundTruth //
+Inside the GroundTruth folder there is a python script called generate_ground_truth.py which generates 5 new questions for each of my 10 original questions and puts them in a CSV: my_ground_truth.csv
+
+== Search Evaluation ==
+(This fulfils the Retrieval evaluation point of the evaluation criteria of the final project that is mentioned in project.md)
+The python script search_evaluation tests 6 different boost combinations and tell us which one performs best. We can use this to evaluate multiple retrieval approaches, so we can use the best boost values we found in our final fp_rag_helper.py script
+(I already adjusted fp_rag_helper.py with the best boost values found)
+
+== LLM Evalution: Standard RAG vs Agentic RAG ==
+For LLM Evaluation, I decided to put my Agentic RAG to the test, and see if Agentic RAG is really getting us better results compared to our Standard RAG.
+
+Therefore I evaluated the two approaches, testing both approaches on your ground truth questions and compare their answers.
+
+First I,
+-Generated RAG answers (for all my ground truth questions using fp_rag_helper.py)
+-Generated Agent answers (for all my ground truth questions using agentic_assistant.py)
+
+Then I used an LLM judge to compare each answer against the original answer; calculated the score for each approach and eventually picked the best approach for your final project.
+
