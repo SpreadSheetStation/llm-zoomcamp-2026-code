@@ -1,15 +1,19 @@
-# 🕺 Dancing Plague of 1518 - History Tutor
+# 🕺 Dancing Plague of 1518 - History Tutor (LLMzc_Final_Project)
+Hello there! Welcome to my Final Capstone Project for the LLM Zoomcamp 2026!
 
-An AI-powered history tutor that answers questions about the Dancing Plague of 1518 using Retrieval-Augmented Generation (RAG) with an agentic approach. Built as a capstone project for the LLM Zoomcamp.
+An AI-powered history tutor that answers questions about the Dancing Plague of 1518 using Retrieval-Augmented Generation (RAG) with an agentic approach.
 
+This project was built as my Final Capstone Project for the LLM Zoomcamp by DataTalks.Club.
+
+✨👋🏻 For Peer Reviewers [click here](./evaluationCriteria.md) for reviewing help.
 ---
 
 ## 📁 Important: Where to Find the Project
 
-This repository contains **two folders**:
-
-- `llm-zoomcamp-2026-code/` – Contains homework and testing code from the course. **Please ignore this folder.**
-- `LLMzc_Final_Project/` – **This is the main project folder.** All the code for the Dancing Plague History Tutor is inside this folder.
+This repository contains **three folders**:
+- 🙅🏻‍♂️ `Images/` – Contains images only for this README.md. **Please ignore this folder.**
+- 🙅🏻‍♂️ `llm-zoomcamp-2026-code/` – Contains homework and testing code from the course. **Please ignore this folder.**
+- 💡 `LLMzc_Final_Project/` – **This is the main project folder.** All the code for the Dancing Plague History Tutor is inside this folder.
 
 **For reviewers:** Please `cd` into `LLMzc_Final_Project` before running any commands.
 
@@ -143,189 +147,6 @@ llm-zoomcamp-2026-code/          # Course homework (ignore)
 
 ---
 
-## 📊 Evaluation Criteria (For Reviewers)
-
-This section maps directly to the [project.md evaluation criteria](https://github.com/DataTalksClub/llm-zoomcamp/blob/main/project.md) to make scoring easy.
-
----
-
-### 1. Problem Description (2/2 pts)
-
-**What problem does this project solve?**
-
-Students often have questions about the Dancing Plague of 1518 but struggle to find accurate answers quickly. This project builds a specialized AI assistant that retrieves information from a curated knowledge base and answers questions in natural language.
-
-**Repository relevance:**
-- The problem is clearly described in this README
-- The dataset is included in `DataSource/qa_knowledge_base.csv`
-- The code directly solves the described problem
-
----
-
-### 2. Retrieval Flow (2/2 pts)
-
-**Does the project use both a knowledge base and an LLM?**
-
-Yes. The flow is:
-
-1. User asks a question
-2. The agent searches the FAQ knowledge base (minsearch)
-3. Retrieved context is sent to the LLM (OpenAI)
-4. The LLM generates a grounded answer
-
-**Repository relevance:**
-- Knowledge base: `DataSource/qa_knowledge_base.csv`
-- Search: `fp_ingest.py` builds the minsearch index
-- LLM: `agentic_assistant.py` uses OpenAI
-- Full flow: `streamlit_app.py` connects everything
-
----
-
-### 3. Retrieval Evaluation (2/2 pts)
-
-**Multiple retrieval approaches were evaluated, and the best one was used.**
-
-Boost combinations tested on 50 ground truth questions:
-
-| Configuration | Hit Rate | MRR |
-|---------------|----------|-----|
-| question=1.0, answer=0.5 | 88.0% | 0.72 |
-| question=2.0, answer=1.0 | 90.0% | 0.78 |
-| **question=3.0, answer=0.5** | **92.0%** | **0.82** |
-| question=5.0, answer=0.5 | 86.0% | 0.70 |
-
-**Winner:** `question=3.0, answer=0.5` → used in `agentic_assistant.py`
-
-**Repository relevance:**
-- Ground truth: `GroundTruth/my_ground_truth.csv`
-- Evaluation script: `search_evaluation.py` (see earlier in this thread)
-- Best configuration is used in `agentic_assistant.py`
-
----
-
-### 4. LLM Evaluation (2/2 pts)
-
-**Two approaches were evaluated, and the best one was used.**
-
-| Approach | Good Answers | Score |
-|----------|--------------|-------|
-| Standard RAG (`fp_rag_helper.py`) | 45/50 | 90.0% |
-| **Agentic RAG (`agentic_assistant.py`)** | **47/50** | **94.0%** |
-
-**Winner:** Agentic RAG → used in `streamlit_app.py`
-
-**Repository relevance:**
-- RAG answers: `GroundTruth/rag_answers.csv`
-- Agent answers: `GroundTruth/agent_answers.csv`
-- Judged results: `GroundTruth/rag_judged.csv` and `GroundTruth/agent_judged.csv`
-- Judge script: `evaluate_judge.py`
-
----
-
-### 5. Interface (2/2 pts)
-
-**A web UI is provided with a chat interface.**
-
-- **Streamlit app**: `streamlit_app.py` (http://localhost:8501)
-- Users type questions and receive answers
-- Thumbs up/down buttons for feedback
-- Feedback is saved to `feedback.csv`
-
-**Repository relevance:**
-- Main UI: `streamlit_app.py`
-- Dashboard UI: `dashboard.py`
-
----
-
-### 6. Ingestion Pipeline (1/2 pts)
-
-**Semi-automated ingestion with a Python script.**
-
-- `fp_ingest.py` loads the CSV and builds the search index
-- Run manually when the dataset changes
-
-To get 2/2, an orchestration tool (Kestra, dlt) would be needed.
-
----
-
-### 7. Monitoring (2/2 pts)
-
-**User feedback is collected AND there is a dashboard with at least 5 charts.**
-
-- ✅ User feedback: Thumbs up/down buttons in `streamlit_app.py`
-- ✅ Dashboard: `dashboard.py` with **7 charts**:
-  1. Feedback Distribution (pie chart)
-  2. Most Asked Topics (donut chart)
-  3. Average Response Time (gauge chart)
-  4. Response Time Over Time (line chart)
-  5. Questions Per Day (bar chart)
-  6. Response Time Distribution (histogram)
-  7. Average Response Time by Date (line chart)
-
-**Repository relevance:**
-- Feedback saving: `save_feedback()` in `streamlit_app.py`
-- Dashboard: `dashboard.py`
-- Data: `feedback.csv` (auto-created)
-
----
-
-### 8. Containerization (2/2 pts)
-
-**Everything is in docker-compose (or a single Dockerfile with both apps).**
-
-- ✅ `Dockerfile` builds the container
-- ✅ `start.sh` starts both the app and the dashboard
-- ✅ One command: `docker run -p 8501:8501 -p 8502:8502 dancing-plague-app`
-
-**Repository relevance:**
-- Container definition: `Dockerfile`
-- Startup script: `start.sh`
-
----
-
-### 9. Reproducibility (2/2 pts)
-
-**Instructions are clear, the dataset is accessible, and dependency versions are specified.**
-
-- ✅ README has clear step-by-step instructions
-- ✅ Dataset: `DataSource/qa_knowledge_base.csv`
-- ✅ Dependencies: `requirements.txt` with pinned versions
-- ✅ API keys: `.env.example` provided
-- ✅ Docker option for easy setup
-
-**Repository relevance:**
-- Instructions: This README
-- Dependencies: `requirements.txt`
-- Environment template: `.env.example`
-
----
-
-### 10. Best Practices (Bonus)
-
-The following best practices were implemented:
-
-- [x] **User query rewriting** – The agent reformulates queries for better search results (built into the agent's search behavior)
-- [x] **Document re-ranking** – Search results are ranked by relevance using minsearch's boost mechanism
-- [ ] Hybrid search – Not implemented (not needed for this small dataset)
-
----
-
-## 📊 Evaluation Summary
-
-| Criterion | Points |
-|-----------|--------|
-| Problem description | 2/2 |
-| Retrieval flow | 2/2 |
-| Retrieval evaluation | 2/2 |
-| LLM evaluation | 2/2 |
-| Interface | 2/2 |
-| Ingestion pipeline | 1/2 |
-| Monitoring | 2/2 |
-| Containerization | 2/2 |
-| Reproducibility | 2/2 |
-| **Total** | **15/16** |
-
----
 
 ## 🔧 Configuration
 
@@ -368,27 +189,3 @@ Then open:
 - Main app: http://localhost:8501
 - Dashboard: http://localhost:8502
 
----
-
-## 🤝 Contributing
-
-This project was built as a capstone for the [LLM Zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp) by DataTalks.Club.
-
----
-
-## 📝 License
-
-This project is for educational purposes as part of the LLM Zoomcamp.
-
----
-
-## 🙏 Acknowledgments
-
-- [LLM Zoomcamp](https://github.com/DataTalksClub/llm-zoomcamp) – Course materials and framework
-- OpenAI – For the API
-- Streamlit – For the UI framework
-- DataTalks.Club – For the free course and community
-
----
-
-*Built with ❤️ for the LLM Zoomcamp 2026 Capstone Project*
