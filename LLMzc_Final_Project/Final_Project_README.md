@@ -108,3 +108,5 @@ For this capstone, I chose CSV over PostgreSQL for monitoring data storage. The 
 - **Better Review Experience:** Peer reviewers see sample data and charts instantly without extra configuration.
 
 While a database would be better for production-scale systems, the CSV approach is simpler, more reproducible, and fully meets the monitoring evaluation criteria for this project.
+
+== Reproducibility ==

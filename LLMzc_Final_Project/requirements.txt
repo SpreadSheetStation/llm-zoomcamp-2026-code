@@ -1,0 +1,18 @@
+# Core dependencies
+openai==2.44.0
+python-dotenv==1.2.2
+pandas==3.0.3
+numpy==2.4.6
+
+# Search engine
+minsearch==0.1.1
+
+# UI and dashboard
+streamlit==1.60.0
+matplotlib==3.11.1
+
+# Data validation (used by the agent)
+pydantic==2.13.4
+
+# HTTP requests (if needed for future extensions)
+requests==2.34.2
