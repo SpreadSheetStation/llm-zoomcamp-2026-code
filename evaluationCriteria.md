@@ -170,4 +170,5 @@ The following best practices were implemented:
 - [ ] Deployment to the cloud – Not implemented (not needed for this small dataset)
 
 🌟 3 extra bonus points up to the Reviewer to award
+
 ---
