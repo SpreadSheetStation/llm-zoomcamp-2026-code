@@ -6,6 +6,7 @@ An AI-powered history tutor that answers questions about the Dancing Plague of 1
 This project was built as my Final Capstone Project for the LLM Zoomcamp by DataTalks.Club.
 
 ✨👋🏻 For Peer Reviewers [click here](./evaluationCriteria.md) for reviewing help.
+
 ---
 
 ## 📁 Important: Where to Find the Project
