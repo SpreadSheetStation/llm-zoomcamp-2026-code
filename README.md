@@ -5,24 +5,7 @@ An AI-powered history tutor that answers questions about the Dancing Plague of 1
 
 This project was built as my Final Capstone Project for the LLM Zoomcamp by DataTalks.Club.
 
-✨👋🏻 For Peer Reviewers [click here](./evaluationCriteria.md) for reviewing help.
-
----
-
-## 📁 Important: Where to Find the Project
-
-This repository contains **three folders**:
-- 🙅🏻‍♂️ `Images/` – Contains images only for this README.md. **Please ignore this folder.**
-- 🙅🏻‍♂️ `llm-zoomcamp-2026-code/` – Contains homework and testing code from the course. **Please ignore this folder.**
-- 💡 `LLMzc_Final_Project/` – **This is the main project folder.** All the code for the Dancing Plague History Tutor is inside this folder.
-
-**For reviewers:** Please `cd` into `LLMzc_Final_Project` before running any commands.
-
-```bash
-cd LLMzc_Final_Project
-```
-
-All instructions below assume you are in the `LLMzc_Final_Project` folder.
+✨👋🏻 For Peer Reviewers [click here](./evaluationCriteria.md) for a practical reviewing experience.
 
 ---
 
@@ -47,6 +30,15 @@ The knowledge base consists of 10 question-answer pairs about the Dancing Plague
 
 ---
 
+## 📁 Important: Where to Find the Project
+
+This repository contains **three folders**:
+- 🙅🏻‍♂️ `Images/` – Contains images only for this README.md. **Please ignore this folder.**
+- 🙅🏻‍♂️ `llm-zoomcamp-2026-code/` – Contains homework and testing code from the course. **Please ignore this folder.**
+- 💡 `LLMzc_Final_Project/` – **This is the main project folder.** All the code for the Dancing Plague History Tutor is inside this folder.
+
+---
+
 ## 🚀 How to Run the Project
 
 > **Important:** All commands below must be run from the `LLMzc_Final_Project` folder.
@@ -56,7 +48,10 @@ The knowledge base consists of 10 question-answer pairs about the Dancing Plague
 cd LLMzc_Final_Project
 ```
 
-### Prerequisites
+### Recommended
+It is recommended to clone this repository and run it via a fresh Codespaces.
+Once a fresh Codespaces is spun up in a clean repo, you can follow the following steps below for a succesful run with Docker.
+
 
 - **Option A (Python):** Python 3.12+ and an OpenAI API key
 - **Option B (Docker):** Docker Desktop installed
