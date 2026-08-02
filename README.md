@@ -309,5 +309,5 @@ While a database would be better for production-scale systems, the CSV approach 
 | RAG Type | Agentic | LLM can refine queries; better results (94%) |
 | Ground Truth | LLM-generated | 50 questions from 10 original Q&As |
 | Interface | Streamlit | Simple, Python-based, easy for reviewers |
-| Monitoring | CSV + Streamlit dashboard | No database setup needed; 7 charts |
+| Monitoring | CSV + Streamlit dashboard | No database setup needed; 5 charts |
 | Containerization | Docker + start.sh | Easy setup for reviewers |
