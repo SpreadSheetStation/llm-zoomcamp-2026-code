@@ -49,45 +49,14 @@ cd LLMzc_Final_Project
 ```
 
 ### Recommended
-It is recommended to clone this repository and run it via a fresh Codespaces.
-Once a fresh Codespaces is spun up in a clean repo, you can follow the following steps below for a succesful run with Docker.
+This project is containerized with Docker for easy setup.
+It is recommended to clone this repository and run it with Docker in a fresh Codespaces environment.
 
-
-- **Option A (Python):** Python 3.12+ and an OpenAI API key
-- **Option B (Docker):** Docker Desktop installed
+💡 Alternatively, you can run this project with Python 🐍 [click here](./pythonRun.md)
 
 ---
 
-### Option A: Run with Python
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/SpreadSheetStation/llm-zoomcamp-2026-code
-cd llm-zoomcamp-2026-code/LLMzc_Final_Project
-
-# 2. Create a virtual environment
-python -m venv .venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Set up your API key
-cp .env.example .env
-# Edit .env and add your OPENAI_API_KEY
-
-# 5. Run the main app
-streamlit run streamlit_app.py
-# Open http://localhost:8501
-
-# 6. Run the dashboard (in a separate terminal)
-streamlit run dashboard.py --server.port=8502
-# Open http://localhost:8502
-```
-
----
-
-### Option B: Run with Docker (Recommended for Reviewers)
+### Running the project with Docker 🐳
 
 ```bash
 # 1. Clone the repository
@@ -109,14 +78,14 @@ docker run -p 8501:8501 -p 8502:8502 dancing-plague-app
 # Dashboard: http://localhost:8502
 ```
 
-> 💡 **Tip for reviewers:** Docker is the easiest way to run this project. Both apps start with one command.
-
 ---
 
 ## 📁 Project Structure
 
 ```
-llm-zoomcamp-2026-code/          # Course homework (ignore)
+LLM-ZOOMCAMP-2026-CODE
+└── Images/                      # Images for README (ignore)
+└── llm-zoomcamp-2026-code/      # Course homework (ignore)
 └── LLMzc_Final_Project/         # ⭐ MAIN PROJECT FOLDER
     ├── DataSource/
     │   └── qa_knowledge_base.csv
@@ -166,22 +135,4 @@ The dashboard shows:
 - **Response time over time** – Line chart
 - **Questions per day** – Bar chart
 - **Recent feedback** – Table of latest interactions
-
----
-
-## 🐳 Docker
-
-The project is containerized with Docker for easy setup.
-
-```bash
-# Build
-docker build -t dancing-plague-app .
-
-# Run (both app and dashboard start automatically)
-docker run -p 8501:8501 -p 8502:8502 dancing-plague-app
-```
-
-Then open:
-- Main app: http://localhost:8501
-- Dashboard: http://localhost:8502
 
