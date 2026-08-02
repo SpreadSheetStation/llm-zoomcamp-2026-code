@@ -301,7 +301,7 @@ While a database would be better for production-scale systems, the CSV approach 
 
 ---
 
-### Summary of Design Choices 
+### Summary of Design Choices
 
 | Component | Choice | Justification |
 |-----------|--------|---------------|
