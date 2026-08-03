@@ -41,14 +41,6 @@ This repository contains **three folders**:
 
 ## 🚀 How to Run the Project
 
-> **Important:** All commands below must be run from the `LLMzc_Final_Project` folder.
-
-```bash
-# First, navigate to the project folder
-cd LLMzc_Final_Project
-```
-
-### Recommended
 This project is containerized with Docker for easy setup.
 It is recommended to clone this repository and run it with Docker in a fresh Codespaces environment.
 
@@ -61,7 +53,9 @@ It is recommended to clone this repository and run it with Docker in a fresh Cod
 ```bash
 # 1. Clone the repository
 git clone https://github.com/SpreadSheetStation/llm-zoomcamp-2026-code
-cd llm-zoomcamp-2026-code/LLMzc_Final_Project
+cd LLMzc_Final_Project
+
+> **Important:** All commands below must be run from the `LLMzc_Final_Project` folder.
 
 # 2. Set up your API key
 cp .env.example .env
