@@ -42,7 +42,10 @@ This repository contains **three folders**:
 ## 🚀 How to Run the Project
 
 This project is containerized with Docker for easy setup.
-It is recommended to clone this repository and run it with Docker in a fresh Codespaces environment.
+It is recommended to clone this repository and run it with Docker in a fresh Codespaces environment:
+- Go to your Github Account
+- Make a new Repository
+- Choose: Start coding with Codespaces
 
 💡 Alternatively, you can run this project with Python 🐍 [click here](./pythonRun.md)
 
@@ -53,9 +56,7 @@ It is recommended to clone this repository and run it with Docker in a fresh Cod
 ```bash
 # 1. Clone the repository
 git clone https://github.com/SpreadSheetStation/llm-zoomcamp-2026-code
-cd LLMzc_Final_Project
-
-> **Important:** All commands below must be run from the `LLMzc_Final_Project` folder.
+cd llm-zoomcamp-2026-code/LLMzc_Final_Project
 
 # 2. Set up your API key
 cp .env.example .env
@@ -72,7 +73,7 @@ docker run -p 8501:8501 -p 8502:8502 dancing-plague-app
 # Dashboard: http://localhost:8502
 ```
 
-💡 You can also go to the Ports tab to launch the App & Dashboard in your browser by hoverig over the Forwarded Address and clicking on the 🌐 icon for each Port:
+💡 You can also go to the Ports tab to launch the App & Dashboard in your browser by hovering over the Forwarded Address and clicking on the 🌐 icon for each Port:
 ![portForwarding](./Images/docker_portForwarding.png) 
 
 ---
