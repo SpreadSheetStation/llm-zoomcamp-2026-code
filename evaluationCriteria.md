@@ -137,7 +137,7 @@ A demo video of the UI & Dashboard can be found here https://youtu.be/1WOQJ6EYvT
 
 ### 8. Containerization (1/2 pts)
 
-**Dockerfile is provided for the main application OR there's a docker-compose for the dependencies only.**
+**Dockerfile is provided for the main application**
 
 - ✅ `Dockerfile` builds the container
 - ✅ `start.sh` starts both the app and the dashboard
@@ -147,11 +147,12 @@ A demo video of the UI & Dashboard can be found here https://youtu.be/1WOQJ6EYvT
 - Container definition: `Dockerfile`
 - Startup script: `start.sh`
 
+To get 2/2, everything should have been in docker-compose.
 ---
 
 ### 9. Reproducibility (2/2 pts)
 
-**Instructions are clear, the dataset is accessible, and dependency versions are specified.**
+**Instructions are clear, the dataset is accessible, it's easy to run the code, and dependency versions are specified.**
 
 - ✅ README has clear step-by-step instructions
 - ✅ Dataset: `DataSource/qa_knowledge_base.csv`
@@ -170,9 +171,10 @@ A demo video of the UI & Dashboard can be found here https://youtu.be/1WOQJ6EYvT
 
 The following best practices were implemented:
 
-- [x] **User query rewriting** – The agent reformulates queries for better search results (built into the agent's search behavior)
-- [x] **Document re-ranking** – Search results are ranked by relevance using minsearch's boost mechanism
 - [ ] Hybrid search – Not implemented (not needed for this small dataset)
+- [x] **Document re-ranking** – Search results are ranked by relevance using minsearch's boost mechanism
+- [x] **User query rewriting** – The agent reformulates queries for better search results (built into the agent's search behavior)
+
 
 ---
 
@@ -180,6 +182,6 @@ The following best practices were implemented:
 
 - [ ] Deployment to the cloud – Not implemented (not needed for this small dataset)
 
-🌟 3 extra bonus points up to the Reviewer to award
+ 🌟 3 extra bonus points are optionally up to the Reviewer to award
 
 ---
