@@ -7,6 +7,9 @@ This project was built as my Final Capstone Project for the LLM Zoomcamp by Data
 
 ➡️ ➡️ ➡️ Peer Reviewers [click here](./evaluationCriteria.md) ✨👋🏻 for a practical reviewing experience. ⬅️ ⬅️ ⬅️
 
+🚨 SPOILER ALERT: A short Demo video of the Streamlit UI-App and Dashboard can be found here:
+https://youtu.be/1WOQJ6EYvTo
+
 ---
 
 ## 📋 Project Overview
